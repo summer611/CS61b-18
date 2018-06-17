@@ -62,6 +62,7 @@ public class TestBSTMap {
         assertTrue(((Integer) b.get("KISS")).equals(5));
         assertNotEquals(null, b.get("starChild"));
         assertEquals(2, b.size());
+        System.out.println(b.keySet());
     }
 
     // assumes put works

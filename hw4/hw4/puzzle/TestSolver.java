@@ -1,5 +1,6 @@
 package hw4.puzzle;
 import edu.princeton.cs.algs4.In;
+import edu.princeton.cs.algs4.StdOut;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -62,7 +63,7 @@ public class TestSolver {
         }
     }
 
-/* Uncomment once you've written Solver.
+/* Uncomment once you've written Solver. */
     @Test(timeout = 10000)
     public void testWordPuzzles() {
         In in = new In("input/word_puzzles.txt");
@@ -79,9 +80,9 @@ public class TestSolver {
             assertEquals(errorMessage, wps.numMoves, s.moves());
         }
     }
- */
 
- /* Uncomment everything in this block once you've written Board.
+
+ /* Uncomment everything in this block once you've written Board.*/
      public static Board readBoard(String filename) {
         In in = new In(filename);
         int N = in.readInt();
@@ -108,7 +109,7 @@ public class TestSolver {
         }
     }
 
-    @Test(timeout = 40000)
+    @Test(timeout = 400000)
     public void test3x3BoardPuzzles() {
         for (int i = 0; i <= 30; i += 1) {
             String pnum = String.format("%02d", i);
@@ -117,7 +118,12 @@ public class TestSolver {
             int numMoves = i;
             BoardPuzzleSolution bps = new BoardPuzzleSolution(puzzleName, b, numMoves);
             Solver s = new Solver(b);
+            System.out.println(puzzleName+" "+ s.moves());
             assertEquals("Wrong number of moves on " + puzzleName, bps.numMoves, s.moves());
+          /*  int ii=0;
+            for (WorldState ws : s.solution()) {
+                StdOut.println(ws+" "+ii++);
+            }*/
         }
     }
 
@@ -131,6 +137,7 @@ public class TestSolver {
             BoardPuzzleSolution bps = new BoardPuzzleSolution(puzzleName, b, numMoves);
             Solver s = new Solver(b);
             assertEquals("Wrong number of moves on " + puzzleName, bps.numMoves, s.moves());
+
         }
     }
 
@@ -145,5 +152,5 @@ public class TestSolver {
             Solver s = new Solver(b);
             assertEquals("Wrong number of moves on " + puzzleName, bps.numMoves, s.moves());
         }
-    }*/
+    }
 }
